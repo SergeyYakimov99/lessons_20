@@ -32,15 +32,15 @@ def divider(a, b):
 
 def test_result():
     # TODO напишите простой тест здесь
-    pass
+    assert divider(10, 5) == 2
 
 def test_zero_divide_error():
     # TODO напишите простой тест здесь
-    pass
+    assert divider(10, 0) == "Делить на ноль нельзя"
 
 def test_error():
     # TODO напишите простой тест здесь
-    pass
+    assert divider(1, "qwe") == "ОШИБКА"
 
 
 

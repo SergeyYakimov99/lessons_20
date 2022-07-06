@@ -31,11 +31,17 @@ def divider(a, b):
 
 def test_summer():
     # TODO Напишите Ваши тесты здесь
-    pass
+    assert isinstance(summer(2, 2, 6), int)
+    assert isinstance(summer(299, 2), str)
+    assert isinstance(summer(1), str)
+    assert isinstance(summer("qwe", 1), str)
 
 def test_divider():
     # TODO Напишите Ваши тесты здесь
-    pass
+    assert isinstance(divider(10, 5), int)
+    assert isinstance(divider(10, 0), str)
+    assert isinstance(divider("qwe", 1), str)
+
 
 
 # Имитируем команду pytest при запуске модуля

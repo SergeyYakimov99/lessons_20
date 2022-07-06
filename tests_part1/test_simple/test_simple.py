@@ -49,19 +49,20 @@ def summer(*args):
 
 def test_sum():
     # TODO Напишите Ваш код здесь
-    pass
+    c = summer(3,6,9)
+    assert c == 18
 
 def test_big_number():
     # TODO Напишите Ваш код здесь
-    pass
+    assert summer(299, 25) == "Большое число"
 
 def test_one_arg():
     # TODO Напишите Ваш код здесь
-    pass
+    assert summer(301) == "Мало аргументов"
 
 def test_wrong_arg():
     # TODO Напишите Ваш код здесь
-    pass
+    assert summer(1, "qwe") == "ОШИБКА"
 
 
 # Имитируем команду pytest при запуске модуля

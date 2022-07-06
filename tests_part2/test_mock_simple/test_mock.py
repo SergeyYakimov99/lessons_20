@@ -24,8 +24,11 @@
 #      ["Санкт-Петербург", "Самара", "Краснодар"], это необходимо для проверки.
 #    - вызовите метод в теле функции show_cities и проверьте ожидаемый результат
 
-import requests
+
 import os
+import requests
+from unittest.mock import MagicMock
+
 
 class AddressGetter:
     def get_cities(city):
@@ -33,7 +36,7 @@ class AddressGetter:
         return response.data
     
     def show_cities(self):           # Необходимо протестировать этот метод
-        cities = self.get_cities()   # Здесь происходить вызов стороннего сервиса
+        cities = self.get_cities()   # Здесь происходит вызов стороннего сервиса
         cities = ", ".join(cities)
         return f"Расположение офисов: {cities}."
 
@@ -41,7 +44,9 @@ class AddressGetter:
 def test_show_cities():
     addressgetter = AddressGetter()
     # TODO Попробуйте мокнуть нужный метод здесь
-    assert addressgetter.show_cities() == "Расположение офисов: Санкт-Петербург, Самара, Краснодар."
+    addressgetter.get_cities = MagicMock(return_value=["Санкт-Петербург", "Самара", "Краснодар"])
+    ex_str = "Расположение офисов: Санкт-Петербург, Самара, Краснодар."
+    assert addressgetter.show_cities() == ex_str
 
 if __name__=="__main__":
     os.system("pytest")
